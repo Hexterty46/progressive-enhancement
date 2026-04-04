@@ -12,10 +12,81 @@
 			/* Hint: Dit component kun je volledig met HTML en CSS bouwen */
 
 			/* Hint: Hoe ver ga je qua styling? Vraag jezelf dit altijd af */
+			html {
+				color-scheme: light dark;
+				body {
+					label {
+						display: flex;
+						align-items: center;
+						gap: .5rem;
+						/* :has(:checked) {
+							color: green;
+						} */
+						input {
+							@supports (appearance: none) {
+								--width:8rem;
+								--height:3rem;
+								--radius:1.5rem;
+								--padding:.2rem;
+								--font: bold;
+
+								--off-color: red;
+								--on-color: limegreen;
+
+								appearance: none;
+								width: var(--width);
+								height: var(--height);
+								padding: var(--padding);
+								/* aspect-ratio: 2 / 1; */
+								background-color: var(--off-color);
+								border-radius: var(--radius);
+								@media (prefers-reduced-motion: no-preference) {
+									transition: .5s;
+								}
+								/* background-color: var(--on-color); */
+								background-image: linear-gradient(
+									to right, 
+									var(--on-color)50%,
+									var(--off-color)50%
+								);
+								background-size: 200% 100%;
+								background-position: right;
+								cursor: pointer;
+
+								&:checked {
+									/* background-color: var(--on-color); */
+									background-position: left;
+								}
+								&::before {
+									content: "";
+									display: grid;
+									justify-items: center;
+									place-items: center;
+									height: 100%;
+									aspect-ratio: 1;
+									background-color: canvastext;
+									color: canvas;
+									border-radius: calc( var(--radius) - var(--padding));
+									transition: .5s;
+									transition: inherit;
+								}
+								&:checked::before {
+									content: "aan";
+									translate: calc( var(--width) - var(--height));
+									font-weight: var(--font);
+								}
+							}
+						}
+					}
+				}
+			}
 		</style>
 	</head>
 	<body>
 		<h1>Switch control</h1>
+		<label>
+			<input type="checkbox">Mooie checkbox
+		</label>
 		
 		<!-- Hint: Safari heeft hiervoor iets bedacht, maar is dat al een standaard?
 		     Wat gebeurt er in browsers die dat nog niet ondersteunen? -->
