@@ -30,6 +30,7 @@
         position: fixed;
         top: 0;
         left: 0;
+        interactivity: inert;
 
         @media (prefers-reduced-motion: no-preference) {
           transition: .3s ease;
@@ -63,6 +64,7 @@
         &:target,
         &.is-open {
           translate: 0;
+          interactivity: auto;
         }
       }
       /* Hint: kijk eens naar :target
