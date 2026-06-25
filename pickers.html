@@ -1,55 +1,102 @@
 <!doctype html>
 <html lang="nl">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width">
-		<title>Favorieten picker / Progressive Enhancement / FDND</title>
-		<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
-		<link href="assets/styles.css" rel="stylesheet">
-		<style>
-			/* Schrijf hier gewoon je CSS voor dit component */
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Favorieten picker / Progressive Enhancement / FDND</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+    />
+    <link href="assets/styles.css" rel="stylesheet" />
+    <style>
+      form {
+        width: 100%;
+        background-color: var(#a675f5);
+        position: relative;
+      }
+      input {
+        appearance: none;
+      }
+      input[type="text"] {
+        min-width: 5rem;
+        field-sizing: content;
+        height: 3rem;
+        border: none;
+        border-radius: 10px;
+        position: relative;
+        transform: translateX(-50%);
+        left: 50%;
+        top: 9rem;
+        font-size: 1.5rem;
+      }
 
-			/* Hint: Dit component kun je volledig met HTML en CSS bouwen */
+      input[type="color"] {
+        width: 100%;
+        height: 20rem;
+        position: absolute;
+        border-radius: 10px;
+        border: none;
+        background-color: unset;
+        padding: 0;
+        box-sizing: unset;
 
-			/* Hint: Kijk eens naar field-sizing
-			   https://developer.mozilla.org/en-US/docs/Web/CSS/field-sizing */
-		</style>
-	</head>
+        &::-webkit-color-swatch-wrapper {
+          padding: 0;
+        }
+        &::-webkit-color-swatch {
+          border: none;
+        }
+      }
 
-	<body>
-		<h1>Favorieten picker</h1>
+      details {
+        position: absolute;
+        bottom: 1px;
+      }
+    </style>
+  </head>
 
-		<form>
+  <body>
+    <h1>Favorieten picker</h1>
 
-			<!-- Hint: hoe kun je aan een invoerelement een lijst meegeven? -->
+    <form>
+      <!-- Hint: hoe kun je aan een invoerelement een lijst meegeven? -->
+      <input type="color" list="kleuren" name="kleur" value="#A675F5" />
+      <datalist id="kleuren">
+        <option value="#A675F5"></option>
+        <option value="#050542"></option>
+        <option value="#66E5BF"></option>
+        <option value="#FFFC86"></option>
+      </datalist>
 
-			<!-- Een lijstje met docenten
-			Charley Muhren
-			Cyd Stumpel
-			Dion Pieters
-			Dorien Drees
-			Joost Faber
-			Justus Sturkenboom
-			Koop Reynders
-			Krijn Hoetmer
-			Sanne 't Hooft
-			Suus ten Voorde
-			-->
+      <input type="text" list="namen" name="naam" />
+      <datalist id="namen">
+        <option value="Charley Muhren"></option>
+        <option value="Cyd Stumpel"></option>
+        <option value="Dion Pieters"></option>
+        <option value="Dorien Drees"></option>
+        <option value="Joost Faber"></option>
+        <option value="Justus Sturkenboom"></option>
+        <option value="Koop Reynders"></option>
+        <option value="Krijn Hoetmer"></option>
+        <option value="Sanne 't Hooft"></option>
+        <option value="Suus ten Voorde"></option>
+      </datalist>
+    </form>
 
-			<!-- De kleurcodes van FDND:
-			#A675F5
-			#050542
-			#66E5BF
-			#FFFC86
-			-->
-
-		</form>
-
-		<details open>
-			<summary>Demo video</summary>
-			<video src="assets/pickers.mp4" width="749" height="417" controls muted autoplay loop>
-				<a href="assets/pickers.mp4">assets/pickers.mp4</a>
-			</video>
-		</details>
-	</body>
+    <details open>
+      <summary>Demo video</summary>
+      <video
+        src="assets/pickers.mp4"
+        width="749"
+        height="417"
+        controls
+        muted
+        autoplay
+        loop
+      >
+        <a href="assets/pickers.mp4">assets/pickers.mp4</a>
+      </video>
+    </details>
+  </body>
 </html>
